@@ -5,10 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Wallet" Background="#002000">
+      d:DesignHeight="670" d:DesignWidth="380"
+      Title="Wallet" Background="#E2E2EA">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="10" TextWrapping="Wrap" Text="Here logged in users can see: their own wallet balance, the total amount of credits in circulation, the lowest wallet balance and the highest wallet balance. The exchange rate of credits is adjusted daily (the credits value is the average of 5 most used fiat currencies  $ € 円 £ 元). Users can increase their balance by buying credits or being part of a project . A vote on a favorite project lowers wallet balance -1. All user wallet balances are adjusted when a user buys or votes, then all user balances are redistributed so that a user can have at most 4 times the balance of an other user. " FontSize="18"/>
+        <Button Content="Buy" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

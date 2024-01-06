@@ -5,10 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Chat" Background="#552288">
+      d:DesignHeight="670" d:DesignWidth="380"
+      Title="Chat" Background="#E2E2EA">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="5" TextWrapping="Wrap" Text="Here logged in users can write to chat with each other." FontSize="18"/>
+        <Button Content="Send Message" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
     </Grid>
 </Page>

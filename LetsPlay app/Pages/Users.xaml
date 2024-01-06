@@ -5,10 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Users" Background="#020303">
+      d:DesignHeight="670" d:DesignWidth="380"
+      Title="Users" Background="#E2E2EA">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="15" TextWrapping="Wrap" Text="Here a logged in user sees all the other users (name, role, profile img) and can invite other users to join their project." FontSize="18"/>
+        <Button Content="Invite" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

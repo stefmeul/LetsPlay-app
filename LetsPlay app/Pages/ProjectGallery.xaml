@@ -5,10 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="ProjectGallery" Background="#224422">
+      d:DesignHeight="670" d:DesignWidth="380"
+      Title="ProjectGallery" Background="#E2E2EA">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="10" TextWrapping="Wrap" Text="here you can see a list of all the projects (title and img). click on them to open a page with project details.  Logged in users can vote on their favorite projects." FontSize="18"/>
+        <Button Content="View details" HorizontalAlignment="Left" Margin="50,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+        <Button Content="Vote" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>

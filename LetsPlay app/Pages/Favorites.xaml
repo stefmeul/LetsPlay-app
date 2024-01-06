@@ -5,10 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Favorites" Background="#882255">
+      d:DesignHeight="670" d:DesignWidth="380"
+      Title="Favorites" Background="#E2E2EA">
 
     <Grid>
-        
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="5 5 15 5" TextWrapping="Wrap" Text="Here you can see the ranking of projects by votes. Time and date are displayed when votes match their project budget. Logged in users can see which projects they voted on. If votes are less than project budget at the time and date of project planning: the user can change the planning, or the votes flow into redistribution amongst all users." FontSize="18"/>
+        <Button Content="Edit planning" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
