@@ -16,8 +16,14 @@
         -->
         <Label x:Name="lblLogo" Height="30" Width="50" Margin="3 10 3 0" Padding="5 0 8 0" VerticalAlignment="Top" BorderThickness="0" Content="LetsPlay" Background="Transparent" FontFamily="Agency FB" FontSize="14" Foreground="#FF5D7F83"/>
         
-        <ListBox Grid.Column="0" SelectionChanged="sidebar_SelectionChanged" SelectionMode="Single" x:Name="sidebar" Margin="0 50 0 50" BorderThickness="0">
+        <ListBox Grid.Column="0" SelectionChanged="sidebar_SelectionChanged" SelectionMode="Single" x:Name="sidebar" Margin="0 50 0 0" BorderThickness="0" Height="590">
 
+            <local:NavButton Navlink="/Pages/Login.xaml" Visibility="Visible" Margin="5" Padding="5 15 5 15" Icon="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+
+            <local:NavButton Navlink="/Pages/Login.xaml" Visibility="Collapsed" Margin="5" Padding="5 15 5 15" Icon="M6,10.5c0,.28.22.5.5.5h8c.28,0,.5-.22.5-.5V1.5c0-.28-.22-.5-.5-.5H6.5c-.28,0-.5.22-.5.5v2c0,.28-.22.5-.5.5s-.5-.22-.5-.5V1.5c0-.83.67-1.5,1.5-1.5h8c.83,0,1.5.67,1.5,1.5v9c0,.83-.67,1.5-1.5,1.5H6.5c-.83,0-1.5-.67-1.5-1.5v-2c0-.28.22-.5.5-.5s.5.22.5.5v2ZM.15,6.35c-.2-.2-.2-.51,0-.71,0,0,0,0,0,0l3-3c.2-.2.51-.2.71,0,.2.2.2.51,0,.71l-2.15,2.15h8.79c.28,0,.5.22.5.5s-.22.5-.5.5H1.71l2.15,2.15c.2.2.2.51,0,.71-.2.2-.51.2-.71,0L.15,6.35Z"/>
+
+            
+            
             <local:NavButton Navlink="/Pages/ProjectGallery.xaml" Margin="5" Padding="5 15 5 15" Icon="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
             <local:NavButton Navlink="/Pages/Wallet.xaml" Margin="5" Padding="5 15 5 15" Icon="M12.136.326A1.5 1.5 0 0 1 14 1.78V3h.5A1.5 1.5 0 0 1 16 4.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 13.5v-9a1.5 1.5 0 0 1 1.432-1.499zM5.562 3H13V1.78a.5.5 0 0 0-.621-.484zM1.5 4a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5z"/>
             <local:NavButton Navlink="/Pages/AddProject.xaml" Margin="5" Padding="5 15 5 15" Icon="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
@@ -28,6 +34,7 @@
             <local:NavButton Navlink="/Pages/UserSettings.xaml" Margin="5" Padding="5 15 5 15" Icon="M8.932.727c-.243-.97-1.62-.97-1.864 0l-.071.286a.96.96 0 0 1-1.622.434l-.205-.211c-.695-.719-1.888-.03-1.613.931l.08.284a.96.96 0 0 1-1.186 1.187l-.284-.081c-.96-.275-1.65.918-.931 1.613l.211.205a.96.96 0 0 1-.434 1.622l-.286.071c-.97.243-.97 1.62 0 1.864l.286.071a.96.96 0 0 1 .434 1.622l-.211.205c-.719.695-.03 1.888.931 1.613l.284-.08a.96.96 0 0 1 1.187 1.187l-.081.283c-.275.96.918 1.65 1.613.931l.205-.211a.96.96 0 0 1 1.622.434l.071.286c.243.97 1.62.97 1.864 0l.071-.286a.96.96 0 0 1 1.622-.434l.205.211c.695.719 1.888.03 1.613-.931l-.08-.284a.96.96 0 0 1 1.187-1.187l.283.081c.96.275 1.65-.918.931-1.613l-.211-.205a.96.96 0 0 1 .434-1.622l.286-.071c.97-.243.97-1.62 0-1.864l-.286-.071a.96.96 0 0 1-.434-1.622l.211-.205c.719-.695.03-1.888-.931-1.613l-.284.08a.96.96 0 0 1-1.187-1.186l.081-.284c.275-.96-.918-1.65-1.613-.931l-.205.211a.96.96 0 0 1-1.622-.434zM8 12.997a4.998 4.998 0 1 1 0-9.995 4.998 4.998 0 0 1 0 9.996z"/>
 
         </ListBox>
+
 
         <Frame Grid.Column="1" x:Name="navframe" NavigationUIVisibility="Hidden" Background="#e9ecef"/>
     </Grid>

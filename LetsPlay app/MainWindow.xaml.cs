@@ -23,6 +23,8 @@ namespace LetsPlay_app
         public MainWindow()
         {
             InitializeComponent();
+
+
         }
 
         private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -31,7 +33,17 @@ namespace LetsPlay_app
 
             if (selected != null)
             {
-                navframe.Navigate(selected.Navlink);
+
+                if (selected.Navlink == new Uri("Pages/Wallet.xaml", UriKind.Relative) && !LoginStatus.IsUserLoggedIn)
+                {
+                    MessageBox.Show("you need to be logged in to see this page");
+
+                    navframe.Navigate(new Uri("Pages/Login.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    navframe.Navigate(selected.Navlink);
+                }
             }
 
         }

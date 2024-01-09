@@ -24,5 +24,7 @@ namespace LetsPlay_app
         {
             InitializeComponent();
         }
+
+        // add bool to login true
     }
 }

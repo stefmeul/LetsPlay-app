@@ -23,6 +23,23 @@ namespace LetsPlay_app.Pages
         public Wallet()
         {
             InitializeComponent();
+
+            if (!LoginStatus.IsUserLoggedIn == true)
+            {
+                MessageBox.Show("user not logged in, redirect to login");
+
+                //  NavigationService?.Navigate(new Uri("/Pages/Login.xaml", UriKind.Relative));
+                //  navframe.Navigate(new Uri("Pages/Login.xaml", UriKind.Relative));
+                // this.NavigationService?.Navigate(new Login());
+                (App.Current.MainWindow as MainWindow)?.navframe.Navigate(new Uri("/Pages/Login.xaml", UriKind.Relative));
+
+            }
+            else
+            {
+                MessageBox.Show("display user balance");
+
+            }
         }
+
     }
 }
