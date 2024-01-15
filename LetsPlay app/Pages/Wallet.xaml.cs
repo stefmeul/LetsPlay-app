@@ -23,7 +23,7 @@ namespace LetsPlay_app.Pages
         public Wallet()
         {
             InitializeComponent();
-
+            /*
             if (!LoginStatus.IsUserLoggedIn == true)
             {
                 MessageBox.Show("user not logged in, redirect to login");
@@ -38,7 +38,7 @@ namespace LetsPlay_app.Pages
             {
                 MessageBox.Show("display user balance");
 
-            }
+            }*/
         }
 
     }

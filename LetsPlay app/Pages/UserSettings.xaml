@@ -5,12 +5,39 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:LetsPlay_app"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="670" d:DesignWidth="380"
       Title="UserSettings" Background="#E2E2EA">
 
     <Grid>
 
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="15" TextWrapping="Wrap" Text="Here a logged in user can edit their profile settings: name*, email*, role(s), website url, profile img, bio/description. (*=required)." FontSize="18"/>
-        <Button Content="Save Changes" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+
+        <Label Content="UserSettings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,15,0,0" Height="50" Width="300" Padding="10" FontSize="18"/>
+
+        <Label x:Name="lblNameUserSettings" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,60,0,0" Height="50" Width="300" Padding="10" FontSize="14"/>
+        <TextBox x:Name="txbNameUserSettings" HorizontalAlignment="Left" Margin="50,100,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+
+        <Label Name="lblEmailUserSettings" Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,140,0,0" Height="50" Width="300" Padding="10" FontSize="14"/>
+        <TextBox x:Name="txbEmailUserSettings" HorizontalAlignment="Left" Margin="50,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+
+        <Label Name="lblPasswordUserSettings" Content="Change Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,220,0,0" Height="600" Width="300" Padding="10" FontSize="14"/>
+        <PasswordBox Name="psbPasswordUserSettings" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+        <!--image icon for show-->
+        <Button x:Name="btnShowPasswordUserSettings" Content="show" HorizontalAlignment="Left" Margin="250,250,0,0" Height="50" Width="50" VerticalAlignment="Top" Background="Transparent" BorderThickness="0"/>
+
+
+        <Label Name="lblProfilImgUserSettings" Content="Profile Image" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,300,0,0" Height="50" Width="300" Padding="10" FontSize="14"/>
+        <Image Name="imgProfileImgUserSettings" HorizontalAlignment="Left" Margin="140,310,0,0" VerticalAlignment="Top" Width="100" Height="100" Source="/Img/profileImg.png"/>
+        <Button x:Name="btnProfileImgUserSettings" Content="browse" HorizontalAlignment="Left" Margin="250,330,0,0" Height="50" Width="50" VerticalAlignment="Top" Background="Transparent" BorderThickness="0" Click="btnProfileImgUserSettings_Click"/>
+
+        <Label Name="lblWebsiteUserSettings" Content="Website" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,390,0,0" Height="50" Width="300" Padding="10" FontSize="14"/>
+        <TextBox x:Name="txbWebsiteUserSettings" HorizontalAlignment="Left" Margin="50,430,0,0" TextWrapping="Wrap" Text="https://" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+
+        
+        <Label Name="lblRolesUserSettings" Content="Roles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,470,0,0" Height="50" Width="300" Padding="10" FontSize="14"/>
+        <TextBox x:Name="txbRolesUserSettings" HorizontalAlignment="Left" Margin="50,510,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+        <Button x:Name="btnShowPasswordRegister" Content="add" HorizontalAlignment="Left" Margin="250,500,0,0" Height="50" Width="50" VerticalAlignment="Top" Background="Transparent" BorderThickness="0"/>
+
+        <TextBlock x:Name="txbResult" Text="result" Margin="10 10 0 0"  Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Height="600" Width="250" Padding="12" Background="Bisque" TextWrapping="Wrap"/>
+        <Button x:Name="btnSaveUserSettings" Content="Save Changes" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top" Click="btnSaveUserSettings_Click"/>
     </Grid>
 </Page>

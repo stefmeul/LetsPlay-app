@@ -13,7 +13,8 @@ namespace LetsPlay_app.Pages
         Connection con = new Connection();
         Encrypt encrypt = new Encrypt();
 
-        internal string InsertData(string userInsert, string emailInsert,string passInsert, string insertDateTime)
+        // create a new user or edit user settings
+        internal string InsertData(string insertDateTime, string userInsert, string emailInsert, string passInsert, string imgUrlInsert, string websiteUrlInsert)
         {
             try
             {
@@ -21,18 +22,31 @@ namespace LetsPlay_app.Pages
                 con.connOpen();
                 MySqlCommand command = new MySqlCommand();
                 // insert sql
-                command.CommandText = "INSERT INTO users (UserName, Email ,Password, Registered) values (@name, @email ,@password, @datetime)";
+                command.CommandText = "INSERT INTO users (RegisteredDate, UserName, Email ,Password, ImgUrl, WebsiteUrl) values (@datetime, @name, @email ,@password, @ImgUrl, @WebsiteUrl)";
+                command.Parameters.AddWithValue("@datetime", insertDateTime);
                 command.Parameters.AddWithValue("@name", userInsert);
                 command.Parameters.AddWithValue("@email", emailInsert);
                 command.Parameters.AddWithValue("@password", Encrypt.HashString(passInsert)); // encrypt password from Encrypt.cs class
-                command.Parameters.AddWithValue("@datetime", insertDateTime);
+                
+                if(imgUrlInsert == null)
+                {
+                   command.Parameters.AddWithValue("addProfileImg", imgUrlInsert);
+                }
+
+                if (websiteUrlInsert == null)
+                {
+                    command.Parameters.AddWithValue("addLinkToWebsite", websiteUrlInsert);
+                }
+                
+
                 command.Connection = Connection.connMaster; // from Connection.cs class
                 command.ExecuteNonQuery();
 
                 MessageBox.Show($"{userInsert}, your account has been created");
+
                 con.connClose();
 
-                return userInsert + emailInsert + passInsert + insertDateTime;
+                return insertDateTime + userInsert + emailInsert + passInsert + imgUrlInsert + websiteUrlInsert;
 
             }
             catch(Exception ex)  

@@ -29,25 +29,27 @@ namespace LetsPlay_app
                 MySqlDataReader reader = command.ExecuteReader();
                 if (reader.Read())
                 {
+                    // welcome message
                     MessageBox.Show($"hi, {emailInsert}");
 
                     // logged in to true
                     LoginStatus.IsUserLoggedIn = true;
-
-
-
                 }
+
                 else
                 {
                     MessageBox.Show("error");
                 }
+
                 return emailInsert + passInsert;
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return null;
             }
+
             finally
             {
                 con.connClose();

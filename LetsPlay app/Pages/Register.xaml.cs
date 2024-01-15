@@ -44,7 +44,7 @@ namespace LetsPlay_app.Pages
             else if (IsEmail(emailInput))
             {
                 // Register user
-                insdata.InsertData(txbNameRegister.Text, txbEmailRegister.Text, psbPasswordRegister.Password, dateRegister);
+                insdata.InsertData(dateRegister, txbNameRegister.Text, txbEmailRegister.Text, psbPasswordRegister.Password, "", "");
             }
             else
             {
