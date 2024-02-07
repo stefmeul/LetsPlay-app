@@ -17,6 +17,8 @@ using Microsoft.Win32;
 using RestSharp;
 using static System.Net.WebRequestMethods;
 using System.IO;
+using Newtonsoft.Json.Linq;
+using LetsPlay_app.Classes; // for writing json to file
 
 namespace LetsPlay_app
 {
@@ -25,15 +27,66 @@ namespace LetsPlay_app
     /// </summary>
     public partial class UserSettings : Page
     {
+        private readonly SelectLogin selectLogin;
+        string imgPath = "";
+        string profileImgUrl = "";
+
         public UserSettings()
         {
             InitializeComponent();
+
+
+            selectLogin = new SelectLogin();
+
+            // get user info from database
+            RetrieveUserInfo();
         }
 
-        // default profile img path variable 
-        string imgPath = "/Img/profileImg.png"; // make function to load user img from api
+        private void RetrieveUserInfo()
+        {
+            // get email of logged in user
+            string userEmail = UserSession.LoggedInUserEmail;
 
-        
+            Console.WriteLine("check user email: " + userEmail);
+
+            if (userEmail != null)
+            {
+                UserInfo userInfo = selectLogin.GetUserInfo(userEmail);
+
+                if (userInfo != null)
+                {
+                    // add user info to form fields
+                    txbNameUserSettings.Text = userInfo.UserName;
+                    txbEmailUserSettings.Text = userInfo.Email;
+                    psbPasswordUserSettings.Password = userInfo.Password;
+                    txbWebsiteUserSettings.Text = userInfo.WebsiteUrl;
+
+                    // parse imgUrl to image source
+                    string imageUrl = userInfo.ImgUrl;
+
+                    if (!string.IsNullOrEmpty(imageUrl))
+                    {
+                        
+                        imgProfileImgUserSettings.Source = new BitmapImage(new Uri(imageUrl));
+
+                    }
+                    else
+                    {
+                        // set default profile img path variable 
+                        imgPath = "/Img/profileImg.png";
+
+                    }
+                }
+
+                else
+                {
+                    MessageBox.Show("error retrieveing user email");
+                }
+            }
+        }
+
+
+
         private void btnProfileImgUserSettings_Click(object sender, RoutedEventArgs e)
         {
             //user selects profile img
@@ -51,6 +104,7 @@ namespace LetsPlay_app
             }
         }
 
+
         private async void btnSaveUserSettings_Click(object sender, RoutedEventArgs e)
         {
             if(!string.IsNullOrEmpty(imgPath))
@@ -67,18 +121,53 @@ namespace LetsPlay_app
                 }
             }
 
-        
+            // update database
+
+            // get email of logged in user
+            string userEmail = UserSession.LoggedInUserEmail;
+
+            // get info from fields
+            string name = txbNameUserSettings.Text;
+            string email = txbEmailUserSettings.Text;
+            string password = psbPasswordUserSettings.Password;
+            string websiteUrl = txbWebsiteUserSettings.Text;
+            string imgUrl = "";
+
+            if (!string.IsNullOrEmpty(profileImgUrl))
+            {
+                imgUrl = profileImgUrl;
+            }
+            else
+            {
+                imgUrl = imgPath;
+            }
+            UpdateUser update = new UpdateUser();
+
+            bool updateSuccess = update.UpdateUserInfo(userEmail, name, password, imgUrl, websiteUrl);
+
+            if (updateSuccess)
+            {
+                MessageBox.Show("update succesfull");
+                RetrieveUserInfo();
+            }
+            else
+            {
+                MessageBox.Show("update failed");
+
+            }
+
+
         }
 
 
         //function to upload to imgbb
-        
+
         private async Task<bool> UploadToImgBB(string imgPath)
         {
             using (HttpClient  httpclient = new HttpClient())
             {
                 string apiUrl = "https://api.imgbb.com/1/upload";
-                string apiKey = "****"; // encrypt or hide for github public
+                string apiKey = ""; // encrypt or hide for github public
 
                 MultipartFormDataContent formData = new MultipartFormDataContent();
                 formData.Add(new StringContent(apiKey), "key");
@@ -86,12 +175,20 @@ namespace LetsPlay_app
                 byte[] imageBytes = System.IO.File.ReadAllBytes(imgPath);
                 formData.Add(new ByteArrayContent(imageBytes), "image", "image.png");
 
+                                                                                // add form handling if offline
                 HttpResponseMessage response = await httpclient.PostAsync(apiUrl, formData);
 
                 if(response.IsSuccessStatusCode)
                 {
                     string result = await response.Content.ReadAsStringAsync();
+                   
                     txbResult.Text = result;
+
+                    // write to file
+                    JObject json = JObject.Parse(result);
+
+                    // extract url from json object result
+                    profileImgUrl = json["data"]["url"].ToString();
 
                     return true;
                 }
@@ -100,8 +197,6 @@ namespace LetsPlay_app
             }
 
         }
-
-        // function to get url from imgbb
 
     }
 }

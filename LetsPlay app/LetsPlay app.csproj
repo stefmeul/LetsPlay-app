@@ -56,6 +56,9 @@
     <Reference Include="MySql.Data, Version=8.2.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.2.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
     </Reference>
@@ -123,6 +126,9 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Encrypt.cs" />
     <Compile Include="Classes\LoginStatus.cs" />
+    <Compile Include="Classes\UpdateUser.cs" />
+    <Compile Include="Classes\UserInfo.cs" />
+    <Compile Include="Classes\UserSession.cs" />
     <Compile Include="Pages\AddProject.xaml.cs">
       <DependentUpon>AddProject.xaml</DependentUpon>
     </Compile>

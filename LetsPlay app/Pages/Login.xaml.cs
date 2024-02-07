@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LetsPlay_app.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,9 @@ namespace LetsPlay_app.Pages
                 
                 // login succesful
                 slctLogin.SelectLoginData(txbEmailLogin.Text, psbPasswordLogin.Password);
+
+                // store login email
+                UserSession.LoggedInUserEmail = emailInput;
 
                 if (LoginStatus.IsUserLoggedIn == true)
                 {

@@ -7,6 +7,8 @@ using System.Windows;
 using LetsPlay_app.Pages;
 using System.Windows.Navigation;
 using MySql.Data.MySqlClient;
+using System.Web.UI.WebControls.WebParts;
+using LetsPlay_app.Classes;
 
 namespace LetsPlay_app
 {
@@ -55,5 +57,45 @@ namespace LetsPlay_app
                 con.connClose();
             }
         }
+
+        // get user info from database
+        public UserInfo GetUserInfo(string email)
+        {
+            try
+            {
+                Connection.DataSource();
+                con.connOpen();
+
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT * FROM users WHERE Email = @email;";
+                command.Parameters.AddWithValue("@email", email);
+                command.Connection = Connection.connMaster;
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read()) 
+                { 
+                    UserInfo info = new UserInfo();
+                    {
+                        info.UserName = reader["UserName"].ToString();
+                        info.Email = reader["Email"].ToString();
+                        info.Password = reader["Password"].ToString();
+                        info.ImgUrl = reader["ImgUrl"].ToString();
+                        info.WebsiteUrl = reader["WebsiteUrl"].ToString();
+                    };
+                    return info;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                con.connClose(); 
+            }
+            return null;
+        }
+
     }
 }

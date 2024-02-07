@@ -20,7 +20,7 @@
         <TextBox x:Name="txbEmailUserSettings" HorizontalAlignment="Left" Margin="50,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
 
         <Label Name="lblPasswordUserSettings" Content="Change Password" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,220,0,0" Height="600" Width="300" Padding="10" FontSize="14"/>
-        <PasswordBox Name="psbPasswordUserSettings" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
+        <PasswordBox Name="psbPasswordUserSettings" Password="" HorizontalAlignment="Left" Margin="50,260,0,0" VerticalAlignment="Top" Width="200" FontSize="13" Padding="5"/>
         <!--image icon for show-->
         <Button x:Name="btnShowPasswordUserSettings" Content="show" HorizontalAlignment="Left" Margin="250,250,0,0" Height="50" Width="50" VerticalAlignment="Top" Background="Transparent" BorderThickness="0"/>
 

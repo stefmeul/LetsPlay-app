@@ -1,4 +1,5 @@
-﻿using LetsPlay_app.Pages;
+﻿using LetsPlay_app.Classes;
+using LetsPlay_app.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +57,9 @@ namespace LetsPlay_app
                 if (result == MessageBoxResult.Yes)
                 {
                     LoginStatus.IsUserLoggedIn = false;
+
+                    UserSession.LoggedInUserEmail = null;
+
                     navframe.Navigate(new Uri("Pages/Login.xaml", UriKind.Relative));
                 }
             }

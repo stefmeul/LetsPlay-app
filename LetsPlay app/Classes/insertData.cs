@@ -21,23 +21,26 @@ namespace LetsPlay_app.Pages
                 Connection.DataSource();
                 con.connOpen();
                 MySqlCommand command = new MySqlCommand();
-                // insert sql
-                command.CommandText = "INSERT INTO users (RegisteredDate, UserName, Email ,Password, ImgUrl, WebsiteUrl) values (@datetime, @name, @email ,@password, @ImgUrl, @WebsiteUrl)";
+
+                command.CommandText = "INSERT INTO users (RegisteredDate, UserName, Email ,Password, ImgUrl, WebsiteUrl) values (@datetime, @name, @email ,@password, @imgUrl, @websiteUrl)";
                 command.Parameters.AddWithValue("@datetime", insertDateTime);
                 command.Parameters.AddWithValue("@name", userInsert);
                 command.Parameters.AddWithValue("@email", emailInsert);
                 command.Parameters.AddWithValue("@password", Encrypt.HashString(passInsert)); // encrypt password from Encrypt.cs class
-                
-                if(imgUrlInsert == null)
+                if (imgUrlInsert != null || websiteUrlInsert != null)
                 {
-                   command.Parameters.AddWithValue("addProfileImg", imgUrlInsert);
+                    command.Parameters.AddWithValue("@ImgUrl", imgUrlInsert);
+                    command.Parameters.AddWithValue("@WebsiteUrl", websiteUrlInsert);
                 }
+                else
+                {
+                    imgUrlInsert = null;
+                    websiteUrlInsert = null;
 
-                if (websiteUrlInsert == null)
-                {
-                    command.Parameters.AddWithValue("addLinkToWebsite", websiteUrlInsert);
+                    command.Parameters.AddWithValue("@ImgUrl", imgUrlInsert);
+                    command.Parameters.AddWithValue("@WebsiteUrl", websiteUrlInsert);
+
                 }
-                
 
                 command.Connection = Connection.connMaster; // from Connection.cs class
                 command.ExecuteNonQuery();
