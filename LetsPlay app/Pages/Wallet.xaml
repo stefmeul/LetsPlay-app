@@ -9,8 +9,28 @@
       Title="Wallet" Background="#E2E2EA">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="600" Width="300" Padding="10" TextWrapping="Wrap" Text="Here logged in users can see: their own wallet balance, the total amount of credits in circulation, the lowest wallet balance and the highest wallet balance. The exchange rate of credits is adjusted daily (the credits value is the average of 5 most used fiat currencies  $ € 円 £ 元). Users can increase their balance by buying credits or being part of a project . A vote on a favorite project lowers wallet balance -1. All user wallet balances are adjusted when a user buys or votes, then all user balances are redistributed so that a user can have at most 4 times the balance of an other user. " FontSize="18"/>
-        <Button Content="Buy" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,10,0,0" Height="325" Width="280" Padding="10" TextWrapping="Wrap" Text="Here logged in users can see: their own wallet balance, the total amount of credits in circulation, the lowest wallet balance and the highest wallet balance. The exchange rate of credits is adjusted daily (the credits value is the average of 5 most used fiat currencies  $ € 円 £ 元). Users can increase their balance by buying credits or being part of a project . A vote on a favorite project lowers wallet balance -1 and 0.01 per vote is sent to fund wallet. All user wallet balances are adjusted when a user buys or votes, then all user balances are redistributed so that a user can have at most 4 times the balance of an other user. " FontSize="14"/>
+
+
+        <Label Name="lblFund" Content="amount in fund =" HorizontalAlignment="Left" Margin="20,330,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblFundAmount" Content="amount" HorizontalAlignment="Left" Margin="140,330,0,0" VerticalAlignment="Top"/>
+
+        <Label Name="lblSumAllBalances" Content="sum of all balances = " HorizontalAlignment="Left" Margin="20,350,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblSumAllBalancesAmount" Content="sum" HorizontalAlignment="Left" Margin="140,350,0,0" VerticalAlignment="Top"/>
+
+        <Label Name="lblMinBalance" Content="lowest user balance =" HorizontalAlignment="Left" Margin="20,370,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblMinBalanceAmount" Content="min" HorizontalAlignment="Left" Margin="140,370,0,0" VerticalAlignment="Top"/>
+
+        <Label Name="lblMaxBalance" Content="highest user balance =" HorizontalAlignment="Left" Margin="20,390,0,0" VerticalAlignment="Top"/>
+        <Label Name="lblMaxBalanceAmount" Content="max" HorizontalAlignment="Left" Margin="140,390,0,0" VerticalAlignment="Top"/>
+
+        <Label Name="lblUserBalance" Content="your balance =" HorizontalAlignment="Left" Margin="20,520,0,0" VerticalAlignment="Top" FontWeight="Medium"/>
+        <Label Name="lblUserBalanceAmount" Content="amount" HorizontalAlignment="Left" Margin="120,520,0,0" VerticalAlignment="Top"/>
+
+        <TextBlock Name="txbBuyInfo" TextWrapping="Wrap" Text="If you buy more than 4 times the amount of the lowest user balance, then the amount above that will be redistributed to all users. For example: lowest user balance = 100. If you buy 450, you get 400 and then 50 will be redistributed to all users."  HorizontalAlignment="Left" Margin="20,430,0,0" VerticalAlignment="Top" Height="80" Width="280" FontStyle="Italic"/>
+
+        <TextBox x:Name="txbAmountToBuy" HorizontalAlignment="Left" Margin="55,561,0,0" TextWrapping="Wrap" Padding="2,15,2,15" Text="enter amount to buy" VerticalAlignment="Top" Width="120" Height="50"/>
+        <Button x:Name="BuyBtn" Content="Buy" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

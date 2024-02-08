@@ -58,6 +58,7 @@ namespace LetsPlay_app
             }
         }
 
+
         // get user info from database
         public UserInfo GetUserInfo(string email)
         {
@@ -77,6 +78,7 @@ namespace LetsPlay_app
                 { 
                     UserInfo info = new UserInfo();
                     {
+                        info.UserNr = Convert.ToInt32(reader["UserNr"]);
                         info.UserName = reader["UserName"].ToString();
                         info.Email = reader["Email"].ToString();
                         info.Password = reader["Password"].ToString();
@@ -95,6 +97,87 @@ namespace LetsPlay_app
                 con.connClose(); 
             }
             return null;
+        }
+
+        // get user balance
+        public UserInfo GetUserBalance(int userNr)
+        {
+            Connection con = new Connection();
+
+            try
+            {
+                Connection.DataSource();
+                con.connOpen();
+
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT * FROM balance WHERE UserNr = @userNr;";
+                command.Parameters.AddWithValue("@userNr", userNr);
+                command.Connection = Connection.connMaster;
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    UserInfo info = new UserInfo();
+                    {
+                        info.Amount = Convert.ToDouble(reader["Amount"]);
+                    //    info.Email = reader["Email"].ToString();
+                    //    info.Password = reader["Password"].ToString();
+                    //    info.ImgUrl = reader["ImgUrl"].ToString();
+                    //    info.WebsiteUrl = reader["WebsiteUrl"].ToString();
+
+                        Console.WriteLine(info);
+                    };
+                    return info;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.connClose();
+            }
+            return null;
+        }
+
+
+        // get all balances
+        public List<double> GetAllBalances()
+        {
+            Connection con = new Connection();
+            List<double> balanceAmounts = new List<double>();
+
+            try
+            {
+                Connection.DataSource();
+                con.connOpen();
+
+                MySqlCommand command = new MySqlCommand();
+                command.CommandText = "SELECT Amount FROM balance;";
+                command.Connection = Connection.connMaster;
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    double amount = Convert.ToDouble(reader["Amount"]);
+                    
+                    // add amount to list
+                    balanceAmounts.Add(amount);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.connClose();
+            }
+
+            return balanceAmounts;
         }
 
     }

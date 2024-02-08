@@ -15,7 +15,7 @@ namespace LetsPlay_app.Classes
         private readonly Connection con = new Connection();
 
                                                                 // check password validation 
-        public bool UpdateUserInfo(string email, string name, string newPassword, string imgUrl, string websiteUrl)
+        public bool UpdateUserInfo(string email, string name,/* string newPassword,*/ string imgUrl, string websiteUrl)
         {
             try
             {
@@ -23,10 +23,26 @@ namespace LetsPlay_app.Classes
 
                 con.connOpen();
                 MySqlCommand command = new MySqlCommand();
-                command.CommandText = "UPDATE users SET UserName = @name, Password = @password, ImgUrl = @imgUrl, WebsiteUrl = @websiteUrl WHERE Email = @email;";
+                command.CommandText = "UPDATE users SET UserName = @name, ImgUrl = @imgUrl, WebsiteUrl = @websiteUrl WHERE Email = @email;"; // Password = @password, 
                 command.Parameters.AddWithValue("@name", name);
                 command.Parameters.AddWithValue("@email", email);
-                command.Parameters.AddWithValue("@password", Encrypt.HashString(newPassword));
+                /*
+                // get user password from database
+                SelectLogin selectLogin = new SelectLogin();
+                string userEmail = UserSession.LoggedInUserEmail;
+                UserInfo userInfo = selectLogin.GetUserInfo(userEmail);
+
+                // check if password is same, if not encrypt it
+                if (userInfo.Password != newPassword)
+                {
+                    command.Parameters.AddWithValue("@password", Encrypt.HashString(newPassword));
+                }
+                else
+                {*/
+            //    command.Parameters.AddWithValue("@password", newPassword);
+                //}
+
+
                 command.Parameters.AddWithValue("@imgUrl", imgUrl);
                 command.Parameters.AddWithValue("@websiteUrl", websiteUrl);
                 command.Connection = Connection.connMaster;

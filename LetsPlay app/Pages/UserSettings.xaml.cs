@@ -28,7 +28,8 @@ namespace LetsPlay_app
     public partial class UserSettings : Page
     {
         private readonly SelectLogin selectLogin;
-        string imgPath = "";
+        string imgPath = "C:\\Users\\stef_\\Desktop\\Odisee graduaat programmeren\\portfolio\\LetsPlay app\\LetsPlay app\\LetsPlay app\\Img\\profileImg.png";
+        string imageUrl = "";
         string profileImgUrl = "";
 
         public UserSettings()
@@ -53,27 +54,31 @@ namespace LetsPlay_app
             {
                 UserInfo userInfo = selectLogin.GetUserInfo(userEmail);
 
-                if (userInfo != null)
+                if (userInfo != null)   // --------------  how to save and encrypt password if changed by user, and how to leave it the same (so that the user can login with unencrypted)
+
                 {
                     // add user info to form fields
                     txbNameUserSettings.Text = userInfo.UserName;
                     txbEmailUserSettings.Text = userInfo.Email;
-                    psbPasswordUserSettings.Password = userInfo.Password;
+                   // psbPasswordUserSettings.Password = userInfo.Password;
                     txbWebsiteUserSettings.Text = userInfo.WebsiteUrl;
 
                     // parse imgUrl to image source
-                    string imageUrl = userInfo.ImgUrl;
+                    imageUrl = userInfo.ImgUrl;
 
                     if (!string.IsNullOrEmpty(imageUrl))
                     {
                         
                         imgProfileImgUserSettings.Source = new BitmapImage(new Uri(imageUrl));
+                        imgPath = imageUrl;
+
 
                     }
+                    
                     else
                     {
                         // set default profile img path variable 
-                        imgPath = "/Img/profileImg.png";
+                        imgPath = "C:\\Users\\stef_\\Desktop\\Odisee graduaat programmeren\\portfolio\\LetsPlay app\\LetsPlay app\\LetsPlay app\\Img\\profileImg.png";
 
                     }
                 }
@@ -104,11 +109,13 @@ namespace LetsPlay_app
             }
         }
 
+        
 
         private async void btnSaveUserSettings_Click(object sender, RoutedEventArgs e)
         {
-            if(!string.IsNullOrEmpty(imgPath))
+            if(!string.IsNullOrEmpty(imgPath) && (imgPath != imageUrl))
             {
+
                 bool uploadSucces = await UploadToImgBB(imgPath);
                 
                 if (uploadSucces)
@@ -129,9 +136,9 @@ namespace LetsPlay_app
             // get info from fields
             string name = txbNameUserSettings.Text;
             string email = txbEmailUserSettings.Text;
-            string password = psbPasswordUserSettings.Password;
+           // string password = psbPasswordUserSettings.Password;
             string websiteUrl = txbWebsiteUserSettings.Text;
-            string imgUrl = "";
+            string imgUrl = imgProfileImgUserSettings.Source.ToString();
 
             if (!string.IsNullOrEmpty(profileImgUrl))
             {
@@ -143,7 +150,7 @@ namespace LetsPlay_app
             }
             UpdateUser update = new UpdateUser();
 
-            bool updateSuccess = update.UpdateUserInfo(userEmail, name, password, imgUrl, websiteUrl);
+            bool updateSuccess = update.UpdateUserInfo(userEmail, name, imgUrl, websiteUrl); // password,
 
             if (updateSuccess)
             {
@@ -167,7 +174,7 @@ namespace LetsPlay_app
             using (HttpClient  httpclient = new HttpClient())
             {
                 string apiUrl = "https://api.imgbb.com/1/upload";
-                string apiKey = ""; // encrypt or hide for github public
+                string apiKey = ""; // encrypt or hide for github public <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
                 MultipartFormDataContent formData = new MultipartFormDataContent();
                 formData.Add(new StringContent(apiKey), "key");
