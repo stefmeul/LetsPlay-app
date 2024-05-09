@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using LetsPlay_app.Pages;
-using System.Windows.Navigation;
 using MySql.Data.MySqlClient;
-using System.Web.UI.WebControls.WebParts;
 using LetsPlay_app.Classes;
 
 namespace LetsPlay_app
@@ -147,7 +141,11 @@ namespace LetsPlay_app
         public List<double> GetAllBalances()
         {
             Connection con = new Connection();
+
             List<double> balanceAmounts = new List<double>();
+            
+            // clear list
+            balanceAmounts.Clear();
 
             try
             {

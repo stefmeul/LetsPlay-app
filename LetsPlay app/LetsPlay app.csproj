@@ -126,6 +126,8 @@
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Encrypt.cs" />
     <Compile Include="Classes\LoginStatus.cs" />
+    <Compile Include="Classes\MakeProject.cs" />
+    <Compile Include="Classes\Redistribute.cs" />
     <Compile Include="Classes\UpdateUser.cs" />
     <Compile Include="Classes\UserInfo.cs" />
     <Compile Include="Classes\UserSession.cs" />

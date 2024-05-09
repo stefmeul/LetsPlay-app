@@ -30,7 +30,7 @@
         <TextBlock Name="txbBuyInfo" TextWrapping="Wrap" Text="If you buy more than 4 times the amount of the lowest user balance, then the amount above that will be redistributed to all users. For example: lowest user balance = 100. If you buy 450, you get 400 and then 50 will be redistributed to all users."  HorizontalAlignment="Left" Margin="20,430,0,0" VerticalAlignment="Top" Height="80" Width="280" FontStyle="Italic"/>
 
         <TextBox x:Name="txbAmountToBuy" HorizontalAlignment="Left" Margin="55,561,0,0" TextWrapping="Wrap" Padding="2,15,2,15" Text="enter amount to buy" VerticalAlignment="Top" Width="120" Height="50"/>
-        <Button x:Name="BuyBtn" Content="Buy" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top"/>
+        <Button x:Name="BuyBtn" Content="Buy" HorizontalAlignment="Left" Margin="180,560,0,0" Height="50" Width="120" VerticalAlignment="Top" Click="BuyBtn_Click"/>
 
     </Grid>
 </Page>

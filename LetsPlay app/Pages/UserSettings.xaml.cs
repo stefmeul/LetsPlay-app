@@ -174,7 +174,7 @@ namespace LetsPlay_app
             using (HttpClient  httpclient = new HttpClient())
             {
                 string apiUrl = "https://api.imgbb.com/1/upload";
-                string apiKey = ""; // encrypt or hide for github public <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+                string apiKey = "7c31a3477fbc763597d09ae589d389d7"; // encrypt or hide for github public <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
                 MultipartFormDataContent formData = new MultipartFormDataContent();
                 formData.Add(new StringContent(apiKey), "key");

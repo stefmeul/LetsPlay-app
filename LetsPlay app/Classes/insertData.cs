@@ -27,6 +27,7 @@ namespace LetsPlay_app.Pages
                 command.Parameters.AddWithValue("@name", userInsert);
                 command.Parameters.AddWithValue("@email", emailInsert);
                 command.Parameters.AddWithValue("@password", Encrypt.HashString(passInsert)); // encrypt password from Encrypt.cs class
+
                 if (imgUrlInsert != null || websiteUrlInsert != null)
                 {
                     command.Parameters.AddWithValue("@ImgUrl", imgUrlInsert);

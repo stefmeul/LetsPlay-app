@@ -1,0 +1,108 @@
+﻿<Window x:Class="WpfLetsPlayApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfLetsPlayApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1400">
+    <DockPanel LastChildFill="True">
+        <TextBox DockPanel.Dock="Top" Text="LETSPLAY" Height="30" VerticalContentAlignment="Center" Margin="5,0"/>
+        <TextBox DockPanel.Dock="Bottom" Text="|_|" />
+        <ListBox x:Name="lsbMenu" DockPanel.Dock="Left" Width="80" SelectionChanged="lsbMenu_SelectionChanged">
+            <ListBoxItem Tag="1" Content="login"/>
+            <ListBoxItem Tag="2" Content="account"/>
+            <ListBoxItem Tag="3" Content="projects"/>
+            <ListBoxItem Tag="4" Content="logout"/>
+        </ListBox>
+        <TextBox DockPanel.Dock="Right" Text="_|" />
+
+        <!--login-->
+        <Grid x:Name="grdPart1" Margin="20,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="email" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="txtEmail" Grid.Row="0" Grid.Column="1" Padding="5" VerticalAlignment="Center"/>
+            <Label Content="password" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
+            <PasswordBox x:Name="pwbPassword" Grid.Row="1" Grid.Column="1" Padding="5" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                <Button x:Name="btnLogin" Content="login" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="10,5" Margin="0,0,10,0" Click="btnLogin_Click"/>
+                <Button x:Name="btnRegister" Content="register" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="10,5" Click="btnRegister_Click"/>
+            </StackPanel>
+            <Label x:Name="lblError" Content="" Foreground="Red" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center"/>
+        </Grid>
+
+        <!--account-->
+        <Grid x:Name="grdPart2" Margin="20,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Your Balance" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="Center"/>
+            <Label x:Name="lblUserBalance" Content="xx" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <Label Content="Number of Persons" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+            <Label x:Name="lblNumberOfUsers" Content="xx" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <Label Content="Highest balance" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+            <Label x:Name="lblHighestBalance" Content="xx" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <Label Content="Lowest balance" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+            <Label x:Name="lblLowestBalance" Content="xx" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+                <TextBox x:Name="txtBuy" Padding="5" VerticalAlignment="Bottom" Width="50" Margin="0,0,10,0"/>
+                <Button x:Name="btnBuy" Content="buy" VerticalAlignment="Bottom" Width="80" Padding="10,5" Click="btnBuy_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Grid.Column="1" Orientation="Horizontal">
+                <TextBox x:Name="txtDonate" Grid.Row="0" Grid.Column="1" Padding="5" VerticalAlignment="Bottom" Width="50" Margin="0,0,10,0"/>
+                <Button x:Name="btnDonate" Content="donate" VerticalAlignment="Bottom" Width="80" Padding="10,5" Click="btnDonate_Click"/>
+            </StackPanel>
+            <Label x:Name="lblMessage1" Content="" Foreground="Red" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <!--projects-->
+        <Grid x:Name="grdPart3" Margin="20,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"></RowDefinition>
+                <RowDefinition Height="150"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="30"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+                <Label Content="select a project and vote"/>
+                <Button x:Name="btnVote" Content="vote" VerticalAlignment="Bottom" Margin="0,0,0,10" Padding="10,5"/>
+                <Label Content="create your own project"/>
+                <Button x:Name="btnMake" Content="make" VerticalAlignment="Bottom" Padding="10,5" Margin="0,0,10,0" Click="btnMake_Click"/>
+            </StackPanel>
+            <ListBox x:Name="lsbProjects" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="200">
+                <ListBoxItem Tag="0" Content="example project"/>
+            </ListBox>
+            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+            </StackPanel>
+            <Label x:Name="lblMessage2" Content="" Foreground="Red" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
+        </Grid>
+
+    </DockPanel>
+</Window>

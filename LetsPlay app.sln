@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsPlay app", "LetsPlay app\LetsPlay app.csproj", "{17799411-731A-4BBD-B61B-5F77F108D42B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LetsPlayClassLibrary", "LetsPlayClassLibrary\LetsPlayClassLibrary.csproj", "{55531521-C830-4265-8284-CE70287634BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLetsPlayApp", "WpfLetsPlayApp\WpfLetsPlayApp.csproj", "{AB34FD5D-C63B-4091-98C8-DD73E4996D84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{17799411-731A-4BBD-B61B-5F77F108D42B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17799411-731A-4BBD-B61B-5F77F108D42B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17799411-731A-4BBD-B61B-5F77F108D42B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55531521-C830-4265-8284-CE70287634BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55531521-C830-4265-8284-CE70287634BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55531521-C830-4265-8284-CE70287634BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55531521-C830-4265-8284-CE70287634BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB34FD5D-C63B-4091-98C8-DD73E4996D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB34FD5D-C63B-4091-98C8-DD73E4996D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB34FD5D-C63B-4091-98C8-DD73E4996D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB34FD5D-C63B-4091-98C8-DD73E4996D84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
